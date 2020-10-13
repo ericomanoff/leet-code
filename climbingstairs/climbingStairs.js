@@ -1,10 +1,17 @@
 const climbStairs = (stairs) => {
 
-  //i think the solution is n!/(n-r)!
-  //n is number of things to choose from: 2 in this case. 1 step or 2 steps
-  //r is the number of stairs
+  return climb_stairs(0, stairs)
 
-  return stairs
+}
+
+const climb_stairs = (currentStep, stepsRemaining) => {
+  if (currentStep > stepsRemaining) {
+    return 0;
+  }
+  if (currentStep === stepsRemaining) {
+    return 1;
+  }
+  return climb_stairs(currentStep + 1, stepsRemaining) + climb_stairs(currentStep + 2, stepsRemaining)
 }
 
 module.exports = climbStairs;
